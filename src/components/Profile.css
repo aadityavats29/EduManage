@@ -1,0 +1,30 @@
+.profile-container {
+    margin: 20px;
+    padding-top: 60px; 
+    display: flex;
+    justify-content: center;
+  }
+  
+  .profile-card {
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .profile-card .MuiCardHeader-title {
+    font-weight: 600;
+  }
+  
+  .profile-card .MuiCardHeader-subheader {
+    color: #666;
+  }
+  
+  .MuiDivider-root {
+    margin: 20px 0;
+  }
+  
