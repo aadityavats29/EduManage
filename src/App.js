@@ -8,7 +8,7 @@ import Attendance from './components/Attendance';
 import Grades from './components/Grades';
 import Profile from './components/Profile';
 import './App.css';
-
+//
 function App() {
   return (
     <Router>
