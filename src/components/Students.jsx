@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
-import { getStudents, addStudent } from '../api';
+import { getStudents, addStudent, deleteStudent } from '../api';
 import AddStudentModal from './AddStudentModal';
 import './Students.css';
 
@@ -31,6 +31,16 @@ const Students = () => {
     }
   };
 
+  const handleDeleteStudent = async (id) => {
+    try {
+      await deleteStudent(id);
+      const updatedStudents = await getStudents();
+      setStudents(updatedStudents);
+    } catch (error) {
+      console.error('Error deleting student:', error);
+    }
+  };
+
   return (
     <div className="students-page">
       <TableContainer component={Paper} className="table-container students-table-container">
@@ -40,14 +50,25 @@ const Students = () => {
               <TableCell>Name</TableCell>
               <TableCell>Age</TableCell>
               <TableCell>Grade</TableCell>
+              <TableCell>Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {students.map((student) => (
-              <TableRow key={student.id}>
+              <TableRow key={student._id}>
                 <TableCell>{student.name}</TableCell>
                 <TableCell>{student.age}</TableCell>
                 <TableCell>{student.grade}</TableCell>
+                <TableCell>
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={() => handleDeleteStudent(student._id)}
+                    className="delete-button"
+                  >
+                    Delete
+                  </Button>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
