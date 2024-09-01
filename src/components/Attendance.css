@@ -1,67 +1,46 @@
-.table-container {
-  margin: 20px;
-  padding-top: 60px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
 .attendance-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  min-height: 80vh;
+  align-items: center;
   padding: 20px;
 }
 
+.table-container {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+}
+
 .table-head {
-  background-color: #333;
-  color: white;
-}
-
-.table-head th {
-  color: white;
-  font-weight: bold;
-}
-
-.table-row {
-  transition: background-color 0.3s ease;
-}
-
-.table-row:hover {
   background-color: #f5f5f5;
 }
 
 .student-name {
-  font-weight: 500;
-}
-
-.status-chip {
   font-weight: bold;
-  color: white;
 }
 
-.MuiChip-colorSuccess {
-  background-color: #4caf50;
+.MuiTableCell-root {
+  text-align: center;
 }
 
-.MuiChip-colorError {
-  background-color: #f44336;
+.MuiTableContainer-root {
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-.MuiChip-colorWarning {
-  background-color: #ff9800;
+.MuiPaper-root {
+  padding: 16px;
 }
 
-.export-button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  padding: 10px;
+.MuiTable-root {
+  border-collapse: separate;
+  border-spacing: 0;
 }
 
-.export-button-container button {
-  background-color: #1976d2;
-  color: #fff;
+.MuiTableCell-head {
+  font-weight: 600;
+}
+
+.MuiTableBody-root {
+  border-top: 1px solid #ddd;
 }

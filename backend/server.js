@@ -19,7 +19,13 @@ const studentSchema = new mongoose.Schema({
   grade: { type: String, required: true },
   attendance: { type: String, required: true },
 });
+const gradeSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  subject: { type: String, required: true },
+  grade: { type: String, required: true },
+});
 
+const Grade = mongoose.model('Grade', gradeSchema);
 const Student = mongoose.model('Student', studentSchema);
 
 app.get('/api/students', async (req, res) => {
@@ -70,7 +76,22 @@ app.delete('/api/students/:id', async (req, res) => {
     res.status(500).json({ message: 'Failed to delete student', error: err.message });
   }
 });
-
+app.get('/api/attendance', async (req, res) => {
+  try {
+    const attendanceRecords = await Student.find(); 
+    res.json(attendanceRecords);
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to fetch attendance records', error: err.message });
+  }
+});
+app.get('/api/grades', async (req, res) => {
+  try {
+    const grades = await Student.find();
+    res.json(grades);
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to fetch grades', error: err.message });
+  }
+});
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
