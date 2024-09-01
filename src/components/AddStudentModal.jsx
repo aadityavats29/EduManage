@@ -7,16 +7,22 @@ const AddStudentModal = ({ open, handleClose, handleAdd }) => {
   const [grade, setGrade] = useState('');
   const [attendance, setAttendance] = useState('');
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!name || !age || !grade || !attendance) {
       alert('Please fill all fields');
       return;
     }
-    handleAdd({ name, age, grade, attendance });
-    setName('');
-    setAge('');
-    setGrade('');
-    setAttendance('');
+    const newStudent = { name, age, grade, attendance };
+    try {
+      await handleAdd(newStudent);
+      setName('');
+      setAge('');
+      setGrade('');
+      setAttendance('');
+      handleClose(); // Close the modal on successful submission
+    } catch (error) {
+      console.error('Error adding student:', error);
+    }
   };
 
   return (
