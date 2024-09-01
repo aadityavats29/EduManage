@@ -1,32 +1,51 @@
+.students-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+  padding: 20px;
+}
+
+.students-table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
 .table-container {
-    margin: 20px;
-    padding-top: 60px; 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .table-head {
-    background-color: #333;
-    color: white;
-  }
-  
-  .table-head th {
-    color: white;
-    font-weight: bold;
-  }
-  
-  .table-row {
-    transition: background-color 0.3s ease;
-  }
-  
-  .table-row:hover {
-    background-color: #f5f5f5;
-  }
-  
-  .student-name {
-    font-weight: 500;
-  }
-  
-  .MuiAvatar-root {
-    margin-right: 10px;
-  }
-  
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #333;
+  color: white;
+}
+
+thead th {
+  padding: 10px;
+  font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody td {
+  padding: 10px;
+}
+
+.add-student-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
